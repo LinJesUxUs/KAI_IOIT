@@ -1,4 +1,4 @@
-from equalisation import equalisation
+from 1 import equalisation
 
 data = [ [2,3],
            [0,4],
