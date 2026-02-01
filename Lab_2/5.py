@@ -6,8 +6,11 @@ try:
     step = 1
     sumDK = (D+K)
     difDK = (D-K)
+    if difDK == 0:
+        raise ValueError("Деление на ноль")
     if N < I: step = -1
     print( *[ i * sumDK / difDK
               for i in range(I,N+step,step) ] )
 
-except: print("Ошибка ввода")
+except Exception as e:
+    print(str(e))
