@@ -6,19 +6,18 @@ try:
     b = int(input("Введите число b "))
     c = int(input("Введите число c "))
     value = (a-b+c-1)
-    value2 = (value**2)-4*c
+    D = (value**2)-4*c
     success = False
     
-    if value2 < 0:
+    if D < 0:
         raise ValueError("Нет решения.#1") # 2,2,2
     
-    root = sqrt(value2)
-    if (-1 <= root) and (root <= 1):
-        print(sqrt(1))
+    root_D = sqrt(D)
+    if (0 == root_D) or (root_D == 1):
         raise ValueError("Нет решения.#2") # 3,1,1
 
-    x = [(value+root)/2
-        ,(value-root)/2]
+    x = [(value+root_D)/2
+        ,(value-root_D)/2]
     
     def check(x):
         val1 = (a-x)/(1-x**2)-(x+b)/(1-x**2)
@@ -26,7 +25,7 @@ try:
         return val1 == val2
 
     for i in x:
-        if -1 > i or i > 1:
+        if (not i == -1) and (not i == 0) and (not i == 1):
             if check(i):
                 print("x =", i) # 3,1,3
                 success = True
