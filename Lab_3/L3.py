@@ -16,8 +16,8 @@ try:
     if (0 == root_D) or (root_D == 1):
         raise ValueError("Нет решения.#2") # 3,1,1
 
-    x = [(value+root_D)/2
-        ,(value-root_D)/2]
+    x = [(-value+root_D)/(2*a)
+        ,(-value-root_D)/(2*a)]
     
     def check(x):
         val1 = (a-x)/(1-x**2)-(x+b)/(1-x**2)
@@ -27,7 +27,7 @@ try:
     for i in x:
         if (not i == -1) and (not i == 0) and (not i == 1):
             if check(i):
-                print("x =", i) # 3,1,3
+                print("x =", i)
                 success = True
 
     if not success: print("Нет решения.", *x) # 2,-3,1
